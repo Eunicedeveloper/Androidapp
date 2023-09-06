@@ -25,8 +25,11 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import net.simplifiedcoding.R
 import net.simplifiedcoding.data.Resource
+import net.simplifiedcoding.navigation.ROUTE_ADD
 import net.simplifiedcoding.navigation.ROUTE_HOME
 import net.simplifiedcoding.navigation.ROUTE_LOGIN
+import net.simplifiedcoding.navigation.ROUTE_PROJECT
+import net.simplifiedcoding.navigation.ROUTE_SERVICES
 import net.simplifiedcoding.navigation.ROUTE_SIGNUP
 import net.simplifiedcoding.ui.theme.AppTheme
 import net.simplifiedcoding.ui.theme.spacing
@@ -128,15 +131,20 @@ fun LoginScreen(viewModel: AuthViewModel?, navController: NavController) {
                     end.linkTo(parent.end, spacing.extraLarge)
                 }
                 .clickable {
-                    navController.navigate(ROUTE_SIGNUP) {
+                    navController.navigate(ROUTE_ADD) {
                         popUpTo(ROUTE_LOGIN) { inclusive = true }
                     }
                 },
-            text = stringResource(id = R.string.dont_have_account),
+            text = "Add data",
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurface
         )
+
+
+
+
+
 
         loginFlow?.value?.let {
             when (it) {
